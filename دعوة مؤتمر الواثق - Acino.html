@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>دعوة | المؤتمر السنوي الأول — مستشفى الواثق و Acino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<script src="image-slot.js"></script>
+<style>
+  :root{
+    --navy:#0a2740;
+    --navy-2:#0f3556;
+    --blue:#1f6fb2;
+    --blue-soft:#5b9bd1;
+    --ink:#16222e;
+    --muted:#5d6f7e;
+    --bg:#f5f8fb;
+    --paper:#ffffff;
+    --line:#dfe7ee;
+    --gold:#b08a4f;
+    --gold-soft:#c9a86b;
+    --ar:'IBM Plex Sans Arabic', system-ui, sans-serif;
+    --en:'Cormorant Garamond', Georgia, serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--ar);
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .en{font-family:var(--en);letter-spacing:.02em;direction:ltr;}
+  .wrap{max-width:1180px;margin-inline:auto;padding-inline:32px;}
+
+  /* ---------- decorative cross motif ---------- */
+  .cross{position:relative;display:inline-block;width:var(--s,22px);height:var(--s,22px);}
+  .cross::before,.cross::after{content:"";position:absolute;background:currentColor;border-radius:2px;}
+  .cross::before{inset-inline-start:calc(50% - var(--t,3px));top:0;width:calc(var(--t,3px)*2);height:100%;}
+  .cross::after{top:calc(50% - var(--t,3px));inset-inline-start:0;height:calc(var(--t,3px)*2);width:100%;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;flex-direction:column;
+    color:#eaf2f9;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(91,155,209,.22), transparent 60%),
+      linear-gradient(180deg,var(--navy) 0%, var(--navy-2) 60%, #0c2c49 100%);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      linear-gradient(0deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:100% 46px;
+    -webkit-mask-image:radial-gradient(80% 70% at 50% 30%, #000, transparent 75%);
+            mask-image:radial-gradient(80% 70% at 50% 30%, #000, transparent 75%);
+    opacity:.5;
+  }
+  .hero-grain{position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background:radial-gradient(60% 50% at 78% 12%, rgba(176,138,79,.16), transparent 70%);}
+
+  .topbar{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:34px;padding:34px 32px 10px;flex-wrap:wrap;}
+  .logo-card{display:flex;flex-direction:column;align-items:center;gap:9px;}
+  .logo-card image-slot{filter:drop-shadow(0 8px 22px rgba(0,0,0,.28));border-radius:16px;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.5);}
+  .logo-card .cap{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#9fb7cc;font-weight:500;}
+  .collab{display:flex;flex-direction:column;align-items:center;gap:6px;color:#cdd9e6;}
+  .collab .amp{font-family:var(--en);font-size:34px;color:var(--gold-soft);line-height:1;}
+  .collab .txt{font-size:12px;letter-spacing:.06em;}
+
+  .hero-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 32px 64px;}
+  .kicker{display:inline-flex;align-items:center;gap:12px;color:var(--gold-soft);font-size:13px;letter-spacing:.42em;text-transform:uppercase;margin-bottom:26px;}
+  .kicker .rule{width:42px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-soft));}
+  .kicker .rule.r{background:linear-gradient(90deg,var(--gold-soft),transparent);}
+
+  .hero .title-block{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:34px;}
+  .hero h1{font-weight:600;font-size:clamp(34px,6vw,72px);line-height:1.1;letter-spacing:-.01em;white-space:nowrap;}
+  .hero h1 .ord{color:var(--blue-soft);}
+  .hero .sub-en{font-size:clamp(18px,2.4vw,28px);color:#bcd0e2;font-style:italic;line-height:1.2;white-space:nowrap;}
+
+  .invite-text{max-width:760px;font-size:clamp(16px,1.7vw,19px);font-weight:300;color:#d4e1ec;line-height:2.05;margin-bottom:36px;text-wrap:pretty;}
+  .invite-text b{font-weight:600;color:#fff;}
+
+  .datechip{display:inline-flex;align-items:stretch;gap:0;border:1px solid rgba(201,168,107,.45);border-radius:16px;overflow:hidden;backdrop-filter:blur(2px);background:rgba(255,255,255,.04);margin-bottom:38px;}
+  .datechip .d{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 26px;}
+  .datechip .d.mid{border-inline:1px solid rgba(201,168,107,.32);}
+  .datechip .big{font-size:30px;font-weight:600;color:#fff;line-height:1.1;}
+  .datechip .lbl{font-size:12px;letter-spacing:.16em;color:#a9bdd0;margin-top:4px;}
+
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
+  .btn{font-family:var(--ar);font-size:16px;font-weight:600;padding:15px 30px;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;display:inline-flex;align-items:center;gap:10px;}
+  .btn-gold{background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:#231a08;box-shadow:0 12px 30px -8px rgba(176,138,79,.6);}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 36px -8px rgba(176,138,79,.7);}
+  .btn-ghost{background:transparent;border-color:rgba(255,255,255,.28);color:#eaf2f9;}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-2px);}
+
+  .scroll-ind{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;color:#8ba4ba;font-size:11px;letter-spacing:.2em;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .scroll-ind .dot{width:22px;height:34px;border:1.5px solid #6f8aa3;border-radius:12px;position:relative;}
+  .scroll-ind .dot::after{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:7px;border-radius:2px;background:#9fb7cc;animation:scrolly 1.6s ease-in-out infinite;}
+  @keyframes scrolly{0%{opacity:0;transform:translate(-50%,0);}40%{opacity:1;}100%{opacity:0;transform:translate(-50%,12px);}}
+
+  /* ---------- COUNTDOWN ---------- */
+  .count-sec{background:var(--navy-2);color:#eaf2f9;padding:46px 0;position:relative;}
+  .count-sec .wrap{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+  .count-lbl{font-size:14px;letter-spacing:.16em;color:var(--gold-soft);margin-inline-end:8px;}
+  .cd-box{min-width:92px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 10px;text-align:center;}
+  .cd-num{font-size:38px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;}
+  .cd-unit{font-size:12px;color:#a9bdd0;letter-spacing:.1em;margin-top:8px;}
+
+  /* ---------- DETAILS ---------- */
+  .details{padding:92px 0 30px;}
+  .sec-head{text-align:center;margin-bottom:54px;}
+  .sec-head .ey{color:var(--gold);font-size:13px;letter-spacing:.34em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;}
+  .sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:600;color:var(--navy);margin-top:14px;}
+  .sec-head .h2en{font-family:var(--en);font-style:italic;color:var(--muted);font-size:20px;margin-top:4px;}
+
+  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .info-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:34px 28px;text-align:center;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;position:relative;overflow:hidden;}
+  .info-card::before{content:"";position:absolute;top:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--blue-soft),var(--blue));opacity:0;transition:opacity .2s ease;}
+  .info-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -22px rgba(10,39,64,.4);border-color:#cdd9e6;}
+  .info-card:hover::before{opacity:1;}
+  .ic-badge{width:56px;height:56px;border-radius:50%;background:#eef4f9;color:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+  .ic-label{font-size:13px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;}
+  .ic-main{font-size:22px;font-weight:600;color:var(--navy);margin-top:8px;}
+  .ic-sub{font-size:14px;color:var(--muted);margin-top:6px;}
+  .ic-sub.en{font-family:var(--en);font-style:italic;font-size:16px;}
+
+  /* ---------- VENUE ---------- */
+  .venue{padding:74px 0 96px;}
+  .venue-card{background:linear-gradient(140deg,var(--navy),var(--navy-2));border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;position:relative;box-shadow:0 30px 60px -30px rgba(10,39,64,.55);}
+  .venue-info{padding:54px 50px;color:#eaf2f9;}
+  .venue-info .ey{color:var(--gold-soft);font-size:13px;letter-spacing:.3em;text-transform:uppercase;}
+  .venue-info h3{font-size:32px;font-weight:600;margin:14px 0 6px;}
+  .venue-info .h3en{font-family:var(--en);font-style:italic;color:#bcd0e2;font-size:20px;margin-bottom:24px;}
+  .venue-info p{color:#cbd9e6;font-weight:300;font-size:16px;line-height:2;max-width:46ch;}
+  .venue-meta{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap;}
+  .venue-meta .m .k{font-size:12px;letter-spacing:.14em;color:#8ba4ba;text-transform:uppercase;}
+  .venue-meta .m .v{font-size:18px;font-weight:600;margin-top:4px;}
+  .venue-visual{position:relative;background:#0c2c49;min-height:340px;}
+  .venue-visual image-slot{width:100%;height:100%;}
+  .map-frame{width:100%;height:100%;min-height:340px;border:0;display:block;filter:saturate(.95);}
+  .map-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#6f8aa3;font-family:ui-monospace,monospace;font-size:13px;text-align:center;padding:24px;
+    background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 12px,transparent 12px 24px);pointer-events:none;}
+  .map-btn{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:13px 22px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,107,.4);color:#eaf2f9;font-family:var(--ar);font-size:15px;font-weight:600;text-decoration:none;transition:background .18s ease, transform .18s ease, border-color .18s ease;}
+  .map-btn:hover{background:rgba(201,168,107,.16);border-color:var(--gold-soft);transform:translateY(-2px);}
+  .map-btn svg{color:var(--gold-soft);}
+  .map-pin{position:absolute;inset-block-end:16px;inset-inline-end:16px;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(10,39,64,.82);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.18);color:#eaf2f9;font-family:var(--ar);font-size:13.5px;font-weight:600;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.35);transition:background .18s ease, transform .18s ease;}
+  .map-pin:hover{background:var(--blue);transform:translateY(-2px);}
+  .map-pin svg{color:var(--gold-soft);}
+
+  /* ---------- RSVP ---------- */
+  .rsvp{background:var(--paper);border-top:1px solid var(--line);padding:88px 0;}
+  .rsvp-inner{max-width:640px;margin-inline:auto;text-align:center;}
+  .rsvp h2{font-size:clamp(26px,4vw,38px);font-weight:600;color:var(--navy);}
+  .rsvp .h2en{font-family:var(--en);font-style:italic;color:var(--muted);font-size:19px;margin:6px 0 12px;}
+  .rsvp p{color:var(--muted);margin-bottom:30px;}
+  .form{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:start;}
+  .field{display:flex;flex-direction:column;gap:7px;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-size:13px;font-weight:500;color:var(--navy);}
+  .field input,.field select{font-family:var(--ar);font-size:15px;padding:13px 15px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;color:var(--ink);transition:border-color .18s ease, box-shadow .18s ease;}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--blue-soft);box-shadow:0 0 0 4px rgba(91,155,209,.15);}
+  .submit{grid-column:1/-1;margin-top:6px;}
+  .btn-primary{width:100%;justify-content:center;background:linear-gradient(180deg,var(--blue),#185c95);color:#fff;font-size:17px;box-shadow:0 14px 30px -12px rgba(31,111,178,.7);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -12px rgba(31,111,178,.8);}
+  .success{display:none;flex-direction:column;align-items:center;gap:14px;padding:30px;}
+  .success.show{display:flex;animation:pop .4s ease;}
+  @keyframes pop{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:scale(1);}}
+  .success .ring{width:74px;height:74px;border-radius:50%;background:#e8f5ee;color:#1f8a5b;display:flex;align-items:center;justify-content:center;}
+  .success h3{font-size:24px;color:var(--navy);font-weight:600;}
+  .success p{color:var(--muted);margin:0;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy);color:#9fb7cc;padding:46px 0;text-align:center;}
+  footer .fcross{color:var(--gold-soft);margin-bottom:16px;display:inline-flex;}
+  footer .fnames{color:#eaf2f9;font-size:17px;font-weight:600;}
+  footer .fsep{color:var(--gold-soft);margin-inline:12px;}
+  footer .fsmall{font-size:13px;margin-top:10px;color:#7f97ad;}
+
+  @media(max-width:880px){
+    .venue-card{grid-template-columns:1fr;}
+    .venue-visual{min-height:300px;}
+    .info-grid{grid-template-columns:1fr;}
+    .form{grid-template-columns:1fr;}
+    .topbar{gap:22px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" data-screen-label="Hero">
+  <div class="hero-grain"></div>
+
+  <div class="topbar">
+    <div class="logo-card">
+      <image-slot id="logo-hospital" style="width:124px;height:124px" shape="rounded" radius="16" fit="contain" placeholder="شعار المستشفى"></image-slot>
+      <span class="cap">مستشفى الواثق الأهلي</span>
+    </div>
+    <div class="collab">
+      <span class="amp">&amp;</span>
+      <span class="txt">بالتعاون مع</span>
+    </div>
+    <div class="logo-card">
+      <image-slot id="logo-acino" style="width:124px;height:124px" shape="rounded" radius="16" fit="contain" placeholder="شعار Acino"></image-slot>
+      <span class="cap">Acino Switzerland</span>
+    </div>
+  </div>
+
+  <div class="hero-body">
+    <span class="kicker"><span class="rule"></span>بطاقة دعوة · Invitation<span class="rule r"></span></span>
+    <div class="title-block">
+      <h1>المؤتمر السنوي <span class="ord">الأول</span></h1>
+      <div class="sub-en en">The First Annual Conference</div>
+    </div>
+    <p class="invite-text">
+      يتشرف <b>مستشفى الواثق الأهلي</b> بالتعاون مع <b>شركة Acino السويسرية</b>
+      بدعوتكم لحضور مؤتمره السنوي الأول، والذي سيُقام داخل مستشفى الواثق
+      يوم <b>الجمعة</b> الموافق <b>١٢ يونيو ٢٠٢٦</b>.
+    </p>
+
+    <div class="datechip">
+      <div class="d"><span class="big">الجمعة</span><span class="lbl">اليوم</span></div>
+      <div class="d mid"><span class="big">١٢ يونيو</span><span class="lbl">التاريخ</span></div>
+      <div class="d"><span class="big">٢٠٢٦</span><span class="lbl">العام</span></div>
+    </div>
+
+    <div class="cta-row">
+      <a href="#details" class="btn btn-gold">
+        <span class="cross" style="--s:16px;--t:2.5px"></span>
+        تفاصيل المؤتمر
+      </a>
+      <a href="#venue" class="btn btn-ghost">موقع الانعقاد</a>
+    </div>
+  </div>
+
+  <div class="scroll-ind"><span class="dot"></span>SCROLL</div>
+</header>
+
+<!-- ===================== COUNTDOWN ===================== -->
+<section class="count-sec">
+  <div class="wrap">
+    <span class="count-lbl">يبدأ المؤتمر خلال</span>
+    <div class="cd-box"><div class="cd-num" id="cd-days">00</div><div class="cd-unit">يوم</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-hours">00</div><div class="cd-unit">ساعة</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-mins">00</div><div class="cd-unit">دقيقة</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-secs">00</div><div class="cd-unit">ثانية</div></div>
+  </div>
+</section>
+
+<!-- ===================== DETAILS ===================== -->
+<section class="details" id="details">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="ey"><span class="cross" style="--s:14px;--t:2.5px"></span>تفاصيل الدعوة</span>
+      <h2>موعد ومكان اللقاء</h2>
+      <div class="h2en">Date · Venue · Time</div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="ic-badge"><span class="cross" style="--s:24px;--t:4px"></span></div>
+        <div class="ic-label">التاريخ · Date</div>
+        <div class="ic-main">الجمعة ١٢ يونيو ٢٠٢٦</div>
+        <div class="ic-sub en">Friday, June 12, 2026</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-badge">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        </div>
+        <div class="ic-label">المكان · Venue</div>
+        <div class="ic-main">مستشفى الواثق الأهلي</div>
+        <div class="ic-sub en">Al-Watiq Private Hospital</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-badge">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>
+        </div>
+        <div class="ic-label">التوقيت · Time</div>
+        <div class="ic-main">الساعة الخامسة مساءً</div>
+        <div class="ic-sub en">5:00 PM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VENUE ===================== -->
+<section class="venue" id="venue">
+  <div class="wrap">
+    <div class="venue-card">
+      <div class="venue-info">
+        <span class="ey">مكان الانعقاد</span>
+        <h3>مستشفى الواثق الأهلي</h3>
+        <div class="h3en">Inside Al-Watiq Private Hospital</div>
+        <p>تُقام جلسات المؤتمر داخل مرافق مستشفى الواثق الأهلي، في بيئة طبية متكاملة تجمع نخبة الأطباء والمختصين وشركاء القطاع الصحي.</p>
+        <div class="venue-meta">
+          <div class="m"><div class="k">اليوم</div><div class="v">الجمعة</div></div>
+          <div class="m"><div class="k">التاريخ</div><div class="v">١٢ / ٦ / ٢٠٢٦</div></div>
+          <div class="m"><div class="k">بالتعاون مع</div><div class="v">Acino</div></div>
+        </div>
+        <a class="map-btn" href="https://www.google.com/maps/place/%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%89+%D8%A7%D9%84%D9%88%D8%A7%D8%AB%D9%82+%D8%A7%D9%84%D8%A3%D9%87%D9%84%D9%8A/@33.3140734,44.4369641,17z/data=!3m1!4b1!4m6!3m5!1s0x155781006537b54d:0x2946a327a3e40310!8m2!3d33.3140734!4d44.4369641!16s%2Fg%2F11ld6wpncv" target="_blank" rel="noopener">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          فتح الموقع على خرائط Google
+          <span class="en" style="opacity:.7;font-size:13px">· Open in Maps</span>
+        </a>
+      </div>
+      <div class="venue-visual">
+        <iframe class="map-frame" src="https://maps.google.com/maps?q=33.3140734,44.4369641&z=16&hl=ar&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="خريطة موقع مستشفى الواثق الأهلي"></iframe>
+        <a class="map-pin" href="https://www.google.com/maps/place/%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%89+%D8%A7%D9%84%D9%88%D8%A7%D8%AB%D9%82+%D8%A7%D9%84%D8%A3%D9%87%D9%84%D9%8A/@33.3140734,44.4369641,17z/data=!3m1!4b1!4m6!3m5!1s0x155781006537b54d:0x2946a327a3e40310!8m2!3d33.3140734!4d44.4369641!16s%2Fg%2F11ld6wpncv" target="_blank" rel="noopener" aria-label="فتح الموقع على خرائط Google">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          الاتجاهات
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="fcross"><span class="cross" style="--s:22px;--t:3.5px"></span></div>
+    <div class="fnames">مستشفى الواثق الأهلي <span class="fsep">×</span> Acino Switzerland</div>
+    <div class="fsmall">المؤتمر السنوي الأول · الجمعة ١٢ يونيو ٢٠٢٦ · The First Annual Conference</div>
+  </div>
+</footer>
+
+<script>
+  // ---------- Countdown ----------
+  const target = new Date('2026-06-12T17:00:00');
+  const pad = n => String(n).padStart(2,'0');
+  function tick(){
+    const now = new Date();
+    let diff = Math.max(0, target - now);
+    const d = Math.floor(diff/86400000); diff -= d*86400000;
+    const h = Math.floor(diff/3600000);  diff -= h*3600000;
+    const m = Math.floor(diff/60000);    diff -= m*60000;
+    const s = Math.floor(diff/1000);
+    document.getElementById('cd-days').textContent  = pad(d);
+    document.getElementById('cd-hours').textContent = pad(h);
+    document.getElementById('cd-mins').textContent  = pad(m);
+    document.getElementById('cd-secs').textContent  = pad(s);
+  }
+  tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>
