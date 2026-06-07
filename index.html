@@ -68,7 +68,7 @@
 
   .topbar{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:34px;padding:34px 32px 10px;flex-wrap:wrap;}
   .logo-card{display:flex;flex-direction:column;align-items:center;gap:9px;}
-  .logo-card image-slot{filter:drop-shadow(0 8px 22px rgba(0,0,0,.28));border-radius:16px;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.5);}
+  .logo-card .brand-logo{width:124px;height:124px;object-fit:contain;border-radius:16px;background:#fff;padding:14px;filter:drop-shadow(0 8px 22px rgba(0,0,0,.28));border:1px solid rgba(255,255,255,.5);}
   .logo-card .cap{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#9fb7cc;font-weight:500;}
   .collab{display:flex;flex-direction:column;align-items:center;gap:6px;color:#cdd9e6;}
   .collab .amp{font-family:var(--en);font-size:34px;color:var(--gold-soft);line-height:1;}
@@ -142,9 +142,11 @@
   .venue-meta{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap;}
   .venue-meta .m .k{font-size:12px;letter-spacing:.14em;color:#8ba4ba;text-transform:uppercase;}
   .venue-meta .m .v{font-size:18px;font-weight:600;margin-top:4px;}
-  .venue-visual{position:relative;background:#0c2c49;min-height:340px;}
-  .venue-visual image-slot{width:100%;height:100%;}
-  .map-frame{width:100%;height:100%;min-height:340px;border:0;display:block;filter:saturate(.95);}
+  .venue-visual{position:relative;background:#0c2c49;min-height:340px;display:grid;grid-template-rows:1fr 1fr;}
+  .venue-photo-wrap{position:relative;overflow:hidden;min-height:200px;}
+  .venue-photo-wrap image-slot{width:100%;height:100%;}
+  .venue-map-wrap{position:relative;border-top:2px solid rgba(201,168,107,.4);min-height:200px;}
+  .map-frame{width:100%;height:100%;min-height:200px;border:0;display:block;filter:saturate(.95);}
   .map-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#6f8aa3;font-family:ui-monospace,monospace;font-size:13px;text-align:center;padding:24px;
     background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 12px,transparent 12px 24px);pointer-events:none;}
   .map-btn{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:13px 22px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,107,.4);color:#eaf2f9;font-family:var(--ar);font-size:15px;font-weight:600;text-decoration:none;transition:background .18s ease, transform .18s ease, border-color .18s ease;}
@@ -200,7 +202,7 @@
 
   <div class="topbar">
     <div class="logo-card">
-      <image-slot id="logo-hospital" style="width:124px;height:124px" shape="rounded" radius="16" fit="contain" placeholder="شعار المستشفى"></image-slot>
+      <img class="brand-logo" src="assets/logo-hospital.webp" alt="شعار مستشفى الواثق الأهلي" width="124" height="124" />
       <span class="cap">مستشفى الواثق الأهلي</span>
     </div>
     <div class="collab">
@@ -208,7 +210,7 @@
       <span class="txt">بالتعاون مع</span>
     </div>
     <div class="logo-card">
-      <image-slot id="logo-acino" style="width:124px;height:124px" shape="rounded" radius="16" fit="contain" placeholder="شعار Acino"></image-slot>
+      <img class="brand-logo" src="assets/logo-acino.webp" alt="شعار Acino Switzerland" width="124" height="124" />
       <span class="cap">Acino Switzerland</span>
     </div>
   </div>
@@ -311,11 +313,16 @@
         </a>
       </div>
       <div class="venue-visual">
-        <iframe class="map-frame" src="https://maps.google.com/maps?q=33.3140734,44.4369641&z=16&hl=ar&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="خريطة موقع مستشفى الواثق الأهلي"></iframe>
-        <a class="map-pin" href="https://www.google.com/maps/place/%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%89+%D8%A7%D9%84%D9%88%D8%A7%D8%AB%D9%82+%D8%A7%D9%84%D8%A3%D9%87%D9%84%D9%8A/@33.3140734,44.4369641,17z/data=!3m1!4b1!4m6!3m5!1s0x155781006537b54d:0x2946a327a3e40310!8m2!3d33.3140734!4d44.4369641!16s%2Fg%2F11ld6wpncv" target="_blank" rel="noopener" aria-label="فتح الموقع على خرائط Google">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-          الاتجاهات
-        </a>
+        <div class="venue-photo-wrap">
+          <image-slot id="venue-photo" shape="rect" placeholder="صورة المستشفى"></image-slot>
+        </div>
+        <div class="venue-map-wrap">
+          <iframe class="map-frame" src="https://maps.google.com/maps?q=33.3140734,44.4369641&z=16&hl=ar&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="خريطة موقع مستشفى الواثق الأهلي"></iframe>
+          <a class="map-pin" href="https://www.google.com/maps/place/%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%89+%D8%A7%D9%84%D9%88%D8%A7%D8%AB%D9%82+%D8%A7%D9%84%D8%A3%D9%87%D9%84%D9%8A/@33.3140734,44.4369641,17z/data=!3m1!4b1!4m6!3m5!1s0x155781006537b54d:0x2946a327a3e40310!8m2!3d33.3140734!4d44.4369641!16s%2Fg%2F11ld6wpncv" target="_blank" rel="noopener" aria-label="فتح الموقع على خرائط Google">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            الاتجاهات
+          </a>
+        </div>
       </div>
     </div>
   </div>
